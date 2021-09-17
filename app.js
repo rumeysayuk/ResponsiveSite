@@ -1,6 +1,5 @@
 const filter = document.querySelector("#filter");
-let myul;
-let myultemp;
+const imagesDiv = document.querySelector(".images");
 eventListeners();
 
 function eventListeners() {
@@ -11,19 +10,29 @@ function eventListeners() {
     });
 }
 
+let _data;
+let unchangedData;
+
 function getAllDatas() {
-    const imagesDiv = document.querySelector(".images");
     fetch('https://jsonplaceholder.typicode.com/posts')
         .then((response) => response.json())
         .then((data) => {
-            data.forEach((value, key, map) => {
-                imagesDiv.innerHTML +=
-                    `
+            _data = data;
+            unchangedData = data;
+            setCards(_data)
+        });
+}
+
+function setCards(data) {
+    imagesDiv.innerHTML = "";
+    data.forEach((value, key, map) => {
+        imagesDiv.innerHTML +=
+            `
 <div class="card board d-flex"">
   <img class="card-img-top img" src="indir.png" alt="Card image cap" width="200px">
   <div class="card-body">
   <div class="head">
-     <h5 class="card-title " >${map[key].title.substring(0, 12)}</h5>
+     <h5 class="card-title">${map[key].title.substring(0, 12)}</h5>
 </div>
  <div class="body">
   <p class="card-text"> ${map[key].body.substring(0, 40)}</p>
@@ -33,42 +42,18 @@ function getAllDatas() {
   </div>
 </div>
                 `;
-            })
-        });
+    })
 }
 
-function myFunction() {
-    let input, filter, li, a, i, body, images, buttons, txtValue;
+function filterFunction() {
+    let input, filter;
     input = document.getElementById("myInput");
-    filter = input.value.toUpperCase();
-    // ul = document.getElementById("myUL");
-    myul = myultemp;
-    li = document.getElementsByClassName("head");
-    body = document.getElementsByClassName("body");
-    buttons = document.getElementsByClassName("buttons")
-    images = document.getElementsByClassName("img")
-    for (i = 0; i < li.length; i++) {
-        a = li[i].getElementsByTagName("h5")[0];
-        txtValue = a.textContent || a.innerText;
-        if (txtValue.toUpperCase().indexOf(filter) > -1) {
-            li[i].style.display = "";
-            body[i].style.display = "";
-            buttons[i].style.display = ""
-            images[i].style.display = ""
-        } else {
-            li[i].style.display = "none";
-            body[i].style.display = "none";
-            buttons[i].style.display = "none";
-            images[i].style.display = "none";
-            myul[i].remove()
-        }
-        if (filter <= 1) {
-            console.log("asd")
-            window.location.reload();
-        }
-    }
+    filter = input.value.toLowerCase();
+    _data = unchangedData;
+    _data = [..._data.filter(d => d.title.toLowerCase().indexOf(filter) != -1)]
+    setCards(_data)
+    console.log(_data)
 }
-
 
 /* PAGİNATİON JS*/
 
