@@ -54,9 +54,17 @@ main {
 }
 
 .card {
+    height: auto;
     max-height: 650px;
     padding: 10px;
-    box-shadow: 5px 10px 18px #c9c9c9;
+    box-shadow: 5px 10px 18px #eae2e2;
+    border-radius: 20px;
+}
+
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 /* new nav*/
@@ -149,6 +157,10 @@ a {
         cursor: pointer;
     }
 
+    .bar {
+        top: 20px;
+    }
+
     .hamburger.active .bar:nth-child(2) {
         opacity: 0;
     }
@@ -163,7 +175,8 @@ a {
         transform: translateY(-8px) rotate(-45deg);
     }
 }
-.men{
+
+.men {
     max-width: 22%;
 }
 
@@ -179,16 +192,10 @@ a {
     aside {
         width: 80%;
     }
-    card{
+
+    card {
         margin-top: 500px;
     }
-
-    section#form {
-        display: none;
-    }
-
-
-
 }
 
 @media (max-width: 743px) {
@@ -217,10 +224,9 @@ a {
     .icon {
         display: none;
     }
+
     .nav-menu {
         flex-direction: row;
-
-
     }
 }
 

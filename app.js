@@ -1,17 +1,14 @@
 const filter = document.querySelector("#filter");
 const imagesDiv = document.querySelector(".images");
+let _data, unchangedData;
+
 eventListeners();
 
 function eventListeners() {
     document.addEventListener("DOMContentLoaded", () => {
         getAllDatas();
-        myul = document.getElementsByClassName("board");
-        myultemp = myul;
     });
 }
-
-let _data;
-let unchangedData;
 
 function getAllDatas() {
     fetch('https://jsonplaceholder.typicode.com/posts')
@@ -26,22 +23,21 @@ function getAllDatas() {
 function setCards(data) {
     imagesDiv.innerHTML = "";
     data.forEach((value, key, map) => {
-        imagesDiv.innerHTML +=
-            `
-<div class="card board d-flex"">
-  <img class="card-img-top img" src="indir.png" alt="Card image cap" width="200px">
-  <div class="card-body">
-  <div class="head">
-     <h5 class="card-title">${map[key].title.substring(0, 12)}</h5>
-</div>
- <div class="body">
-  <p class="card-text"> ${map[key].body.substring(0, 40)}</p>
-</div>
-   
-    <a href="#" class="btn btn-primary text-center buttons mt-2">Go somewhere</a>
-  </div>
-</div>
-                `;
+
+        imagesDiv.innerHTML += `
+             <div class="card board d-flex"">
+                 <img class="card-img-top img" style="border-radius: 20px;" src="https://picsum.photos/200/200" alt="Card image cap" width="200px">
+                 <div class="card-body">
+                      <div class="head">
+                        <h5 class="card-title">${map[key].title.substring(0, 12)}</h5>
+                      </div>
+                      <div class="body">
+                         <p class="card-text"> ${map[key].body.substring(0, 40)}</p>
+                      </div>
+                      <a href="#" class="btn btn-primary text-center buttons mt-2">Go somewhere</a>
+                 </div>
+             </div>
+        `;
     })
 }
 
@@ -52,13 +48,12 @@ function filterFunction() {
     _data = unchangedData;
     _data = [..._data.filter(d => d.title.toLowerCase().indexOf(filter) != -1)]
     setCards(_data)
-    console.log(_data)
 }
 
 /* PAGİNATİON JS*/
 
 // const board = document.querySelectorAll(".board");
-// const arrayPage =["sewf","dvgdf"]
+// const arrayPage =[getAllDatas()]
 // const pagList = document.querySelectorAll('.pagination');
 // const showList = document.querySelectorAll('.list');
 //
