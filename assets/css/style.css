@@ -1,3 +1,10 @@
+/*noinspection CssUnknownTarget*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,500;1,400&display=swap');
+
+body{
+    background-color: #fcfcfc;
+}
+
 .header {
     display: flex;
     align-items: center;
@@ -57,8 +64,18 @@ main {
     height: auto;
     max-height: 650px;
     padding: 10px;
-    box-shadow: 5px 10px 18px #eae2e2;
+    box-shadow: 5px 10px 18px #bbb8b8;
     border-radius: 20px;
+    margin-top: 1rem;
+}
+
+.img{
+    opacity: 0.7;
+}
+
+.img:hover{
+    opacity: 1;
+    transition:all .50s;
 }
 
 footer {
@@ -69,7 +86,6 @@ footer {
 
 /* new nav*/
 
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,500;1,400&display=swap');
 li {
     list-style: none;
 }
@@ -191,6 +207,7 @@ a {
 
     aside {
         width: 80%;
+
     }
 
     card {
@@ -216,11 +233,6 @@ a {
     #but, .gru {
         display: none;
     }
-
-    .topnav {
-        display: block;
-    }
-
     .icon {
         display: none;
     }
@@ -245,61 +257,4 @@ a {
         width: 50%;
     }
 
-}
-
-/* Pagination*/
-
-.wrapper {
-    margin: 0 auto;
-    margin-top: 150px;
-    width: 600px;
-    display: flex;
-    flex-direction: column;
-}
-
-.list {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.list__item {
-    text-transform: uppercase;
-    text-align: center;
-    cursor: pointer;
-    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2);
-    background: rgba(255, 255, 255, 0.75);
-    margin: 7px 0;
-    border-radius: 6px;
-    width: 50%;
-    height: 30px;
-}
-
-.pagination {
-    margin-top: 10px;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.pagination__btn {
-    border: 1px solid #ddd;
-    background: #fff;
-    border-radius: 50%;
-    margin: 0 7px;
-    outline: none;
-    width: 30px;
-    height: 30px;
-    cursor: pointer;
-}
-
-.pagination__btn-active {
-    background-color: #408AD2;
-    color: #fff;
-}
-
-.pagination__btn-active {
-    background-color: #408AD2;
-    color: #fff;
 }
